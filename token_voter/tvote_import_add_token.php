@@ -1,24 +1,17 @@
 <?php
-function tvote_save_token($vote_token) {
-    global $wpdb;
-    $wpdb->insert('wp_tvote_tokens', array('token' => $vote_token));
-}
+require_once( __DIR__ . '/models/token.php');
+$token_model = new Token();
 
 //Form data sent
 if($_POST['tvote_hidden'] == 'Y') {
       $vote_token = $_POST['tvote_token'];
-      tvote_save_token($vote_token);
+      $token_model->insert(array('token' => $vote_token));
 ?>
 <div class="updated"><p><strong>Token saved</strong></p></div>
 <?php
 }
-global $wpdb;
-$vote_tokens_array = $wpdb->get_results(
-"
-SELECT *
-FROM wp_tvote_tokens
-", ARRAY_A
-);
+
+$vote_tokens_array = $token_model->getAll();
 ?>
 
 <div class="wrap">
