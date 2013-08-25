@@ -61,9 +61,26 @@ function tvote_add_token() {
     include('tvote_import_add_token.php');
 }
 
+function tvote_add_awards() {
+    include('tvote_import_add_award.php');
+}
+
+function tvote_add_nominee() {
+    include('tvote_import_add_nominee.php');
+}
+
+function tvote_add_vote() {
+    include('tvote_import_add_vote.php');
+}
+
 function tvote_admin_actions() {
     add_menu_page("Add Tokens", "Token Vote", "manage_options", "token_voter_settings", "tvote_add_token");
-    add_submenu_page("token_voter_settings", "Add Tokens", "Tokens", "manage_options", "token_voter_token_settings", "tvote_add_token");
+    add_submenu_page("token_voter_settings", "Add Awards", "Awards", "manage_options", "token_voter_awards_settings", "tvote_add_awards");
+    add_submenu_page("token_voter_settings", "Add Nominee", "Nominees", "manage_options", "token_voter_nominee_settings", "tvote_add_nominee");
+
+    // TODO turn this in to a shorcut
+    add_submenu_page("token_voter_settings", "Add Vote", "Voting", "manage_options", "token_voter_vote_settings", "tvote_add_vote");
+
 }
 
 ?>
