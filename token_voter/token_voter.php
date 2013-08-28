@@ -70,7 +70,7 @@ function tvote_add_nominee() {
 }
 
 function tvote_add_vote() {
-    include('tvote_import_add_vote.php');
+    include('tvote_import_list_vote.php');
 }
 
 function tvote_admin_actions() {
@@ -80,7 +80,12 @@ function tvote_admin_actions() {
 
     // TODO turn this in to a shorcut
     add_submenu_page("token_voter_settings", "Add Vote", "Voting", "manage_options", "token_voter_vote_settings", "tvote_add_vote");
+}
 
+add_shortcode("tvote_shortcode", "tvote_shortcode_function");
+
+function tvote_shortcode_function() {
+    include('tvote_import_add_vote.php');
 }
 
 ?>

@@ -72,11 +72,11 @@ class Html {
 
     public static function select($name, $data)
     {
-        echo "<select name=\"$name\">";
+        echo "<p><select name=\"$name\">";
         foreach ($data as $row) {
             echo "<option value=" . $row[0] . ">". $row[1] ."</option>";
         }
-        echo "</select>";
+        echo "</select></p>";
     }
 
 }
