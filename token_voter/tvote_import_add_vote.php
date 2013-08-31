@@ -53,7 +53,7 @@ if (!empty($award_list)) {
 ?>
 
 <p class="submit">
-  <input type="submit" name="Submit" value="Add Token" />
+  <input type="submit" name="Submit" value="Vote" />
 </p>
 
 <?php 

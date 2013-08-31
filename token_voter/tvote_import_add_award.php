@@ -26,7 +26,7 @@ Html::openForm();
 <p>Award name: <input type="text" name="tvote_award_name" value="" size="20"></p>
     <p>Description:</p> <textarea name="tvote_award_desc" rows="4" cols="50"></textarea>
 <p class="submit">
-  <input type="submit" name="Submit" value="Add Token" />
+  <input type="submit" name="Submit" value="Add Award" />
 </p>
 
 <?php 

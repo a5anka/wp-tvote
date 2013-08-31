@@ -36,7 +36,7 @@ Html::openForm();
 <p>Nominee Email: <input type="text" name="tvote_nominee_email" value="" size="20"></p>
 
 <p class="submit">
-  <input type="submit" name="Submit" value="Add Token" />
+  <input type="submit" name="Submit" value="Add Nominee" />
 </p>
 
 <?php 
