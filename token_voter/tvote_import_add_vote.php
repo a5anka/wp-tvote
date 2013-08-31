@@ -43,10 +43,12 @@ if (!empty($award_list)) {
 ?>
 
 <input type="hidden" name="tvote_hidden" value="Y">
-<p>Token: <input type="text" name="tvote_token" value="" size="20"></p>
+<h4>Token</h4>
+<p><input type="text" name="tvote_token" value="" size="20"></p>
 <?php
         foreach($award_list as $award) {
-            Html::printPageSubtitle($award[1]);
+            echo "<hr />";
+            Html::printAwardtitle($award[1]);
             $nominees = $nominee_model->getNomineeFor($award[0]);
             Html::select("tvote_award_" . $award[0], $nominees);
         }
