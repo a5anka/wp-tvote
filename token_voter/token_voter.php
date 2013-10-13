@@ -15,7 +15,7 @@ function tvote_install () {
    $table_name = $wpdb->prefix . "tvote_tokens";
    $sql = "CREATE TABLE $table_name (
   id int(11) NOT NULL AUTO_INCREMENT,
-  token varchar(16) NOT NULL,
+  token varchar(6) NOT NULL,
   PRIMARY KEY  (id),
   UNIQUE KEY token (token)
 );";
@@ -35,7 +35,6 @@ function tvote_install () {
   id int(11) NOT NULL AUTO_INCREMENT,
   award_id int(11) NOT NULL,
   name varchar(100) NOT NULL,
-  email varchar(50) NOT NULL,
   PRIMARY KEY  (id)
 );";
    dbDelta( $sql );

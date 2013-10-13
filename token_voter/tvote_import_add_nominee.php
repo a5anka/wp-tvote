@@ -11,9 +11,7 @@ $award_model = new Award();
 if($_POST['tvote_hidden'] == 'Y') {
     $award_id = $_POST['tvote_award_id'];
     $nominee_name = $_POST['tvote_nominee_name'];
-    $nominee_email = $_POST['tvote_nominee_email'];
     $nominee_model->insert(array('name' => $nominee_name,
-                                 'email' => $nominee_email,
                                  'award_id' => $award_id
     ));
     
@@ -33,7 +31,6 @@ Html::openForm();
 <?php Html::select("tvote_award_id", $award_list); ?>
 </p>
 <p>Nominee name: <input type="text" name="tvote_nominee_name" value="" size="20"></p>
-<p>Nominee Email: <input type="text" name="tvote_nominee_email" value="" size="20"></p>
 
 <p class="submit">
   <input type="submit" name="Submit" value="Add Nominee" />
@@ -43,7 +40,7 @@ Html::openForm();
     Html::closeForm();
 
     Html::openTable();
-    Html::tableHead(array("ID", "Award", "Nominee Name", "Email"));
+    Html::tableHead(array("ID", "Award", "Nominee Name"));
 
     Html::tableBody($nominees_array);
     

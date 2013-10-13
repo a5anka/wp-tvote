@@ -11,7 +11,7 @@ class Award extends Model {
         $table_name = $this->getTable();
         return $this->wpdb->get_results(
             "
-            SELECT id, name
+            SELECT id, name, descryption
             FROM $table_name
             ", ARRAY_N
         );

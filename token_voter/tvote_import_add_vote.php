@@ -49,6 +49,7 @@ if (!empty($award_list)) {
         foreach($award_list as $award) {
             echo "<hr />";
             Html::printAwardtitle($award[1]);
+            Html::printAwardDescription($award[2]);
             $nominees = $nominee_model->getNomineeFor($award[0]);
             Html::select("tvote_award_" . $award[0], $nominees);
         }

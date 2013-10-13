@@ -22,6 +22,11 @@ class Html {
         echo "<h4>$title</h4>";
     }
 
+    public static function printAwardDescription($desc)
+    {
+        echo "<p>$desc</p>";
+    }
+
     public static function openForm()
     {
         echo "<form name=\"tvote_form\" method=\"post\" action=" . str_replace( '%7E', '~', $_SERVER['REQUEST_URI']) . ">";

@@ -8,7 +8,7 @@ $award_model = new Award();
 //Form data sent
 if($_POST['tvote_hidden'] == 'Y') {
     $award_name = $_POST['tvote_award_name'];
-    $award_desc = $_POST['tvote_award_desc'];
+    $award_desc = stripslashes_deep($_POST['tvote_award_desc']);
     $award_model->insert(array('name' => $award_name,
     'descryption' => $award_desc));
     
