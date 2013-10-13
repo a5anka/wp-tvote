@@ -17,7 +17,7 @@ $nominee_list = $nominee_model->getAllForSelect();
 
 //Form data sent
 if($_POST['tvote_hidden'] == 'Y') {
-    $token = $_POST['tvote_token'];
+    $token = strtoupper($_POST['tvote_token']);
     $token_id = $token_model->getTokenFor($token);
 
     if ($token_id!==NULL) {
