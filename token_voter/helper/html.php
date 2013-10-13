@@ -89,6 +89,20 @@ class Html {
         echo "</select></p>";
     }
 
+    public static function radio($name, $data)
+    {
+        $first=True;
+        foreach ($data as $row) {
+            if ($first) {
+                echo "<label><input type=\"radio\" checked=\"checked\" name=\"$name\" value=" . $row[0] . "> ". $row[1] ."</label><br />";
+                $first=False;
+            } else {
+            echo "<label><input type=\"radio\" name=\"$name\" value=" . $row[0] . "> ". $row[1] ."</label><br />";
+            }
+        }
+    }
+
+
 }
 
 ?>

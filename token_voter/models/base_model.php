@@ -29,7 +29,7 @@ abstract class Model {
     }
 
     public function insert($data) {
-        $this->wpdb->insert($this->getTable(), $data);
+        return $this->wpdb->insert($this->getTable(), $data);
     }
 
     public function getAll() {

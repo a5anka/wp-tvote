@@ -16,7 +16,7 @@ $award_list = $award_model->getAllForSelect();
 $nominee_list = $nominee_model->getAllForSelect();
 
 //Form data sent
-if($_POST['tvote_hidden'] == 'Y') {    
+if($_POST['tvote_hidden'] == 'Y') {
     $token = $_POST['tvote_token'];
     $token_id = $token_model->getTokenFor($token);
 
@@ -24,15 +24,20 @@ if($_POST['tvote_hidden'] == 'Y') {
         foreach($award_list as $award) {
             $award_id = $award[0];
             $nominee_id = $_POST['tvote_award_' . $award[0]];
-            
-            $vote_model->insert(array('token_id' => $token_id,
-                                      'award_id' => $award_id,
-                                      'nominee_id' => $nominee_id
-            ));
+
+            $vote_saved = $vote_model->insert(array('token_id' => $token_id,
+                                                    'award_id' => $award_id,
+                                                    'nominee_id' => $nominee_id),
+                                              array('%d','%d','%d'));
+
         }
-        Html::printUpdate("Vote saved");
+        if ($vote_saved) {
+            Html::printUpdate("Vote saved. Thank you.");
+        } else {
+            Html::printUpdate("You have already casted your vote.");
+        }
     } else {
-        Html::printUpdate("Token is not valid!");
+        Html::printUpdate("Token is not valid! Please check again.");
     }
 }
 
@@ -51,7 +56,8 @@ if (!empty($award_list)) {
             Html::printAwardtitle($award[1]);
             Html::printAwardDescription($award[2]);
             $nominees = $nominee_model->getNomineeFor($award[0]);
-            Html::select("tvote_award_" . $award[0], $nominees);
+            Html::radio("tvote_award_" . $award[0], $nominees);
+            echo "<br />";
         }
 ?>
 
@@ -59,7 +65,7 @@ if (!empty($award_list)) {
   <input type="submit" name="Submit" value="Vote" />
 </p>
 
-<?php 
+<?php
         Html::closeForm();
 } else {
     Html::printPageSubtitle("No award categories!");
