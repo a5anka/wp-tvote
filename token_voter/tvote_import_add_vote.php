@@ -48,8 +48,7 @@ if (!empty($award_list)) {
 ?>
 
 <input type="hidden" name="tvote_hidden" value="Y">
-<h4>Token</h4>
-<p><input type="text" name="tvote_token" value="" size="20"></p>
+<p><b>Voting Key in your ticket </b><input type="text" name="tvote_token" value="" size="20"></p>
 <?php
         foreach($award_list as $award) {
             echo "<hr />";
