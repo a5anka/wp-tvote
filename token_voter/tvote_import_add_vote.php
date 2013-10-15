@@ -66,7 +66,7 @@ if (!empty($award_list)) {
 <p><b>Voting Key in your ticket </b><input type="text" name="tvote_token" value="" size="20"></p>
 <?php
         foreach($award_list as $award) {
-            echo "<hr /><div class=\"tvote-award\"";
+            echo "<hr /><div class=\"tvote-award\"">;
             Html::printAwardtitle($award[1]);
             Html::printAwardDescription($award[2]);
             $nominees = $nominee_model->getNomineeFor($award[0]);
