@@ -74,19 +74,19 @@ if (!empty($award_list)) {
 ?>
 
 <input type="hidden" name="tvote_hidden" value="Y">
-<p><b>Voting Key </b><input type="text" name="tvote_token" value="" size="20" style="margin-left: 20px"></p>
 <?php
         foreach($award_list as $award) {
-            echo "<hr /><div class=\"tvote-award\">";
+            echo "<div class=\"tvote-award\">";
             Html::printAwardtitle($award[1]);
             Html::printAwardDescription($award[2]);
             $nominees = $nominee_model->getNomineeFor($award[0]);
             Html::radio("tvote_award_" . $award[0], $nominees);
-            echo "<br /></div>";
+            echo "<br /></div><hr />";
         }
 ?>
 <br/>
-<p class="submit" style="padding-left: 50px;">
+<p><b>Voting Key </b><input type="text" name="tvote_token" value="" size="20" style="margin-left: 20px"></p><br />
+<p class="submit">
   <input type="submit" name="Submit" value="Vote" />
 </p>
 
