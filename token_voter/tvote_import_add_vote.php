@@ -1,3 +1,18 @@
+<style type="text/css">
+div.updated {
+  color: red;
+}
+
+div.tvote-award p {
+    max-width: 800px;
+    padding-left: 50px;
+    text-align: justify;
+}
+
+div.tvote-award label {
+    padding-left: 100px;
+}
+</style>
 <div class="wrap">
 <?php
 
@@ -51,12 +66,12 @@ if (!empty($award_list)) {
 <p><b>Voting Key in your ticket </b><input type="text" name="tvote_token" value="" size="20"></p>
 <?php
         foreach($award_list as $award) {
-            echo "<hr />";
+            echo "<hr /><div class=\"tvote-award\"";
             Html::printAwardtitle($award[1]);
             Html::printAwardDescription($award[2]);
             $nominees = $nominee_model->getNomineeFor($award[0]);
             Html::radio("tvote_award_" . $award[0], $nominees);
-            echo "<br />";
+            echo "<br /></div>";
         }
 ?>
 
