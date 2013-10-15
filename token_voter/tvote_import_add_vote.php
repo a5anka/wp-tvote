@@ -12,6 +12,11 @@ div.tvote-award p {
 div.tvote-award label {
     padding-left: 100px;
 }
+
+.btn {
+    padding: 8px 25px;
+    font-size: 15px;
+}
 </style>
 <div class="wrap">
 <?php
@@ -63,7 +68,7 @@ if (!empty($award_list)) {
 ?>
 
 <input type="hidden" name="tvote_hidden" value="Y">
-<p><b>Voting Key in your ticket </b><input type="text" name="tvote_token" value="" size="20"></p>
+<p><b>Voting Key </b><input type="text" name="tvote_token" value="" size="20" style="margin-left: 20px"></p>
 <?php
         foreach($award_list as $award) {
             echo "<hr /><div class=\"tvote-award\">";
@@ -74,8 +79,8 @@ if (!empty($award_list)) {
             echo "<br /></div>";
         }
 ?>
-
-<p class="submit">
+<br/>
+<p class="submit" style="padding-left: 50px;">
   <input type="submit" name="Submit" value="Vote" />
 </p>
 
