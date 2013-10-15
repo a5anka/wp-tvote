@@ -1,10 +1,12 @@
 <style type="text/css">
 div.updated {
   color: red;
+  font-size: 16px;
 }
 
 div.successupdated {
   color: green;
+  font-size: 16px;
 }
 
 div.tvote-award p {
