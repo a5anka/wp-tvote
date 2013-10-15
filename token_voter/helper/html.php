@@ -4,7 +4,12 @@ class Html {
 
     public static function printUpdate($message)
     {
-        echo "<div class=\"updated\"><p><strong>$message</strong></p></div>";
+        echo "<div class=\"updated\"><p><strong>$message</strong></p></div><br />";
+    }
+
+    public static function printSuccessUpdate($message)
+    {
+        echo "<div class=\"successupdated \"><p><strong>$message</strong></p></div><br />";
     }
 
     public static function printPageTitle($title)

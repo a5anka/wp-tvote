@@ -3,6 +3,10 @@ div.updated {
   color: red;
 }
 
+div.successupdated {
+  color: green;
+}
+
 div.tvote-award p {
     max-width: 800px;
     padding-left: 50px;
@@ -52,12 +56,12 @@ if($_POST['tvote_hidden'] == 'Y') {
 
         }
         if ($vote_saved) {
-            Html::printUpdate("Vote saved. Thank you.");
+            Html::printSuccessUpdate("Your votes are placed successfully. Thank you.");
         } else {
-            Html::printUpdate("You have already casted your vote.");
+            Html::printUpdate("A vote has been placed under this token. If you have any trouble in voting please contact awards@cse.mrt.ac.lk");
         }
     } else {
-        Html::printUpdate("Token is not valid! Please check again.");
+        Html::printUpdate("Token is not valid! Please try again with a valid token.");
     }
 }
 
